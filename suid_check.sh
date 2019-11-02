@@ -11,9 +11,10 @@ suid_var=$(find / -perm -u=s -type f 2>/dev/null)
 for line in $suid_var; do
  exec_name=${line##*/}
  if [[ " ${array[*]} " == *$exec_name* ]]; then
-    echo "$exec_name in GTFObins, please go to https://gtfobins.github.io/ and verify if SUID privilege escalation is possible".
+    echo -e "\e[00;33m$exec_name\e[00m in GTFObins." 
  fi
 done
+echo "please go to https://gtfobins.github.io/ and verify if above mentioned SUID privilege escalations are possible".
 }
 
 suid_check
